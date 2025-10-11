@@ -1,8 +1,5 @@
 # Astro Starter Kit: Minimal
 
-#### Start cmd
-npm run dev
-
 ```sh
 npm create astro@latest -- --template minimal
 ```
