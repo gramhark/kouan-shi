@@ -1,6 +1,6 @@
 All Rights Reserved
 
-Copyright (c) 2025 Hamlorien / Koan-shi Project
+Copyright (c) 2025 Koan-shi Project
 
 All rights reserved.  
 No part of this website, including any text, philosophy, ideas, or other content, may be reproduced, distributed, or transmitted 
@@ -14,7 +14,7 @@ Unauthorized reproduction or redistribution of this content is strictly prohibit
 
 すべての権利を保有します。
 
-著作権 (c) 2025 Hamlorien / Koan-shi Project
+著作権 (c) 2025 Koan-shi Project
 
 本ウェブサイトに掲載される一切の文章、思想、哲学的記述、その他の内容について、
 著作者の事前の書面による許可なく、いかなる形式・手段によっても複製・配布・転載・改変・再利用することを禁じます。
