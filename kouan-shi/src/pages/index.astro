@@ -28,13 +28,15 @@
     </nav>
   </main>
 
-  <!-- ▼▼▼ フッターに「このサイトについて」のリンクを追加 ▼▼▼ -->
   <footer class="page-footer">
-    <a href="./about" class="x-link about-footer-link">about "The Hymn of Light and Shadow"</a>
+    <div class="about-links">
+      <a href="./ja/about" class="x-link about-footer-link">光闇詞について</a>
+      <span class="about-separator">/</span>
+      <a href="./en/about" class="x-link about-footer-link">About</a>
+    </div>
     <a href="https://x.com/xxxgramharkxxx" target="_blank" rel="noopener noreferrer" class="x-link">Created by Gramhark</a>
     <p class="copyright">&copy; 2025 Kouan-shi All rights reserved.</p>
   </footer>
-  <!-- ▲▲▲ フッターを修正 ▲▲▲ -->
 
 </body>
 </html>
@@ -107,11 +109,15 @@
     color: #333;
     text-decoration: underline;
   }
-  /* ▼▼▼ フッターのリンク用にスタイルを追加 ▼▼▼ */
-  .about-footer-link {
-    display: block;
+  .about-links {
     margin-bottom: 0.5rem;
   }
-  /* ▲▲▲ スタイルを追加 ▲▲▲ */
+  .about-footer-link {
+    display: inline;
+  }
+  .about-separator {
+    color: #8c7d6e;
+    margin: 0 0.5rem;
+  }
 </style>
 

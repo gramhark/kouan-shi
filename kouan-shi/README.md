@@ -1,43 +1,56 @@
-# Astro Starter Kit: Minimal
+# 光闇詞 (Kouan-shi) — The Hymn of Light and Shadow
 
-```sh
-npm create astro@latest -- --template minimal
+光と闇を持つ心の在り方を哲学的に説く『光闇詞』の公式サイトのソースコードです。
+
+**サイト URL**: [https://www.koan-shi.com](https://www.koan-shi.com)
+
+## 技術スタック
+
+- **フレームワーク**: [Astro](https://astro.build/) v5
+- **言語**: HTML, CSS, TypeScript
+- **i18n**: 日本語 (ja) / 英語 (en) の2言語対応
+- **Markdown**: [marked](https://github.com/markedjs/marked) による経典テキストの描画
+
+## ディレクトリ構成
+
+```
+src/
+├── layouts/
+│   └── ScriptureLayout.astro   # 章ページ共通レイアウト
+├── content/
+│   └── scriptures/             # 経典のMarkdownファイル
+│       ├── ja/                 # 日本語版 (prelude/interlude/finale)
+│       └── en/                 # 英語版 (prelude/interlude/finale)
+└── pages/
+    ├── index.astro             # 言語選択ページ
+    ├── ja/                     # 日本語ページ群
+    │   ├── index.astro         # 章選択
+    │   ├── prelude.astro       # 前詞四十節
+    │   ├── interlude.astro     # 中詞四節
+    │   ├── finale.astro        # 終節
+    │   └── about.astro         # このサイトについて
+    └── en/                     # 英語ページ群
+        ├── index.astro         # Chapter selection
+        ├── prelude.astro       # Prelude - 40 Verses
+        ├── interlude.astro     # Interlude - 4 Verses
+        ├── finale.astro        # Finale
+        └── about.astro         # About
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## セットアップ
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm install
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## コマンド
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| コマンド            | 説明                                    |
+| :------------------ | :-------------------------------------- |
+| `npm run dev`       | ローカル開発サーバーを起動 (`localhost:4321`) |
+| `npm run build`     | 本番用サイトを `./dist/` にビルド       |
+| `npm run preview`   | ビルド結果をローカルでプレビュー        |
 
-Any static assets, like images, can be placed in the `public/` directory.
+## ライセンス
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+[LICENSE.txt](LICENSE.txt) を参照してください。
