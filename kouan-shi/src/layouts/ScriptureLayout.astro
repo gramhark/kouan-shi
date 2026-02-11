@@ -1,0 +1,169 @@
+---
+interface Props {
+  lang: string;
+  title: string;
+  font: string;
+  fontUrl: string;
+  chapterTitle: string;
+  backLabel: string;
+  defaultHeading: string;
+  defaultMessage: string;
+  storageKey: string;
+  versesData: Record<number, string>;
+}
+
+const {
+  lang,
+  title,
+  font,
+  fontUrl,
+  chapterTitle,
+  backLabel,
+  defaultHeading,
+  defaultMessage,
+  storageKey,
+  versesData,
+} = Astro.props;
+---
+<html lang={lang}>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+</head>
+<body style={`font-family: '${font}', serif;`}>
+  <div class="holy-scripture-layout">
+    <nav class="verse-navigation">
+      <h2>{chapterTitle}</h2>
+      <ul>
+        <slot />
+      </ul>
+    </nav>
+    <main class="verse-content">
+      <article id="content-article">
+        <h1>{defaultHeading}</h1>
+        <p>{defaultMessage}</p>
+      </article>
+    </main>
+    <aside class="side-panel">
+      <div class="side-panel-content">
+        <a href="../" class="side-link">{backLabel}</a>
+      </div>
+    </aside>
+  </div>
+
+  <script type="application/json" id="verse-data" set:html={JSON.stringify(versesData)} />
+  <script type="application/json" id="storage-key" set:html={JSON.stringify(storageKey)} />
+  <script>
+    import { marked } from 'marked';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('.verse-navigation');
+      const article = document.getElementById('content-article');
+      const links = document.querySelectorAll('.verse-navigation a');
+      const versesData = JSON.parse(document.getElementById('verse-data')!.textContent!);
+      const storageKey = JSON.parse(document.getElementById('storage-key')!.textContent!);
+
+      // Restore scroll position on page load
+      const savedScrollPos = sessionStorage.getItem(storageKey);
+      if (savedScrollPos) {
+        nav!.scrollTop = parseInt(savedScrollPos, 10);
+      }
+
+      function parseMarkdown(text: string): string {
+        if (!text) return '';
+        // Strip YAML frontmatter (---...---) properly
+        const fmMatch = text.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/);
+        const body = fmMatch ? text.slice(fmMatch[0].length) : text;
+        return marked.parse(body) as string;
+      }
+
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          // Save current scroll position
+          sessionStorage.setItem(storageKey, String(nav!.scrollTop));
+
+          const verseNum = (e.target as HTMLElement).dataset.verseNum;
+          if (!verseNum) return;
+          const markdownText = versesData[verseNum];
+          article!.innerHTML = parseMarkdown(markdownText);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f1ea;
+    color: #333;
+    font-weight: 400;
+  }
+  .holy-scripture-layout { display: flex; height: 100vh; }
+  .verse-navigation { flex: 0 0 280px; border-right: 1px solid #dcd6c8; padding: 2rem; overflow-y: auto; }
+  .verse-navigation h2 { font-weight: 700; margin-top: 0; padding-bottom: 1rem; border-bottom: 1px solid #dcd6c8; }
+  .verse-navigation ul { list-style: none; padding: 0; margin: 0; }
+  .verse-navigation li a { display: block; padding: 0.7rem 0; text-decoration: none; color: #5c5248; transition: background-color 0.2s ease; cursor: pointer; }
+  .verse-navigation li a:hover { color: #333; background-color: rgba(0,0,0,0.03); }
+  .verse-content { flex: 1 1 auto; padding: 4rem; overflow-y: auto; }
+  .verse-content h1 { font-size: 2.5rem; font-weight: 700; margin-top: 0; border-bottom: 1px solid #dcd6c8; padding-bottom: 1rem; margin-bottom: 2rem; }
+  .verse-content p { font-size: 1.1rem; line-height: 2.2; }
+  .verse-content h2 { font-size: 1.8rem; font-weight: 700; margin-top: 2.5rem; }
+  .side-panel { flex: 0 0 280px; border-left: 1px solid #dcd6c8; background-color: rgba(0,0,0,0.01); padding: 2rem; box-sizing: border-box; }
+  .side-panel-content .side-link {
+    display: block;
+    text-decoration: none;
+    color: #5c5248;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #dcd6c8;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  .side-panel-content .side-link:hover {
+    background-color: rgba(0,0,0,0.05);
+    color: #333;
+    border-color: #c4bcae;
+  }
+
+  /* スマートフォン用の表示調整 */
+  @media (max-width: 768px) {
+    .holy-scripture-layout {
+      flex-direction: column;
+      height: auto;
+    }
+    .verse-navigation,
+    .side-panel {
+      flex: 0 0 auto;
+      width: 100%;
+      height: auto;
+      border: none;
+      border-bottom: 1px solid #dcd6c8;
+      box-sizing: border-box;
+      overflow-y: visible;
+    }
+    .verse-navigation {
+      max-height: 40vh;
+      overflow-y: auto;
+    }
+    .side-panel {
+      padding: 1rem;
+      border-bottom: none;
+    }
+    .verse-content {
+      padding: 2rem 1.5rem;
+      overflow-y: visible;
+    }
+    .verse-content h1 { font-size: 2rem; }
+    .verse-content p { font-size: 1rem; line-height: 1.9; }
+    .verse-content h2 { font-size: 1.5rem; }
+  }
+</style>
