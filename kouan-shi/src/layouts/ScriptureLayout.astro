@@ -74,8 +74,12 @@ const {
         if (!text) return '';
         // Remove BOM and leading whitespace, then strip YAML frontmatter
         let cleaned = text.replace(/^\uFEFF/, '').trimStart();
-        const fmMatch = cleaned.match(/^---[\t ]*[\r\n]+[\s\S]*?[\r\n]+---[\t ]*[\r\n]*/);
-        const body = fmMatch ? cleaned.slice(fmMatch[0].length) : cleaned;
+        const fmMatch = cleaned.match(/^---[\t ]*[\r\n]+([\s\S]*?)[\r\n]+---[\t ]*[\r\n]*/);
+        let body = fmMatch ? cleaned.slice(fmMatch[0].length) : cleaned;
+        // Prepend frontmatter content as a heading if present
+        if (fmMatch && fmMatch[1].trim()) {
+          body = '## ' + fmMatch[1].trim() + '\n\n' + body;
+        }
         return marked.parse(body) as string;
       }
 
