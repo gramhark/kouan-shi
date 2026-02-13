@@ -20,10 +20,13 @@
   <main class="chapter-selection">
     <h1 class="main-title">The Hymn of Light and Shadow</h1>
     <nav class="chapter-nav">
-      <a href="./prelude" class="nav-button">Prelude - 40 Verses</a>
-      <a href="./interlude" class="nav-button">Interlude - 4 Verses</a>
-      <a href="./finale" class="nav-button">Finale</a>
+      <a href="./prelude/" class="nav-button">Prelude - 40 Verses</a>
+      <a href="./interlude/" class="nav-button">Interlude - 4 Verses</a>
+      <a href="./finale/" class="nav-button">Finale</a>
     </nav>
+    <div class="back-area">
+      <a href="/" class="nav-button back-button">Back</a>
+    </div>
   </main>
 
 </body>
@@ -64,11 +67,15 @@
   .chapter-nav {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
   }
 
   .nav-button {
+    display: inline-block;
     padding: 1rem 3.5rem;
+    min-width: 300px;
+    text-align: center;
     border: 1px solid #333;
     border-radius: 5px;
     color: #333;
@@ -80,5 +87,10 @@
   .nav-button:hover {
     background-color: #333;
     color: #f4f1ea;
+  }
+
+  .back-area {
+    margin-top: 3rem;
+    text-align: center;
   }
 </style>
