@@ -15,4 +15,6 @@ export default defineConfig({
   site: 'https://www.koan-shi.com',
   // 独自ドメインではリポジトリ名は不要になるため、baseは常にルートパスにする
   base: '/',
+  // GitHub PagesではtrailingSlashを常に付与する必要がある
+  trailingSlash: 'always',
 });
