@@ -1,0 +1,141 @@
+---
+// About this site (English version)
+import { ClientRouter } from 'astro:transitions';
+---
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>About - The Hymn of Light and Shadow</title>
+    <meta name="description" content="About the philosophical poetry site 'The Hymn of Light and Shadow' and the author's philosophy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <ClientRouter />
+</head>
+<body>
+
+  <div class="container">
+    <header class="page-header">
+      <h1 class="main-title">About "The Hymn of Light and Shadow"</h1>
+      <h2 class="sub-title">光闇詞について</h2>
+    </header>
+
+    <main class="content-area">
+      <section class="prose">
+        <p>
+          'The Hymn of Light and Shadow' is a philosophical journey exploring the nature of the human heart through the opposing concepts of light and darkness.
+        </p>
+        <p>
+          May this site bring a little more ease to your tomorrow.
+        </p>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+        <a href="/" class="back-link">Back</a>
+    </footer>
+  </div>
+
+</body>
+</html>
+
+<style>
+  :root {
+    --color-bg: #f4f1ea;
+    --color-text: #2b2b2b;
+    --color-accent: #b22222;
+    --color-gold: #c5a059;
+    --color-sub: #5c5248;
+  }
+
+  body {
+    margin: 0;
+    padding: 4rem 2rem;
+    font-family: 'Noto Serif', serif;
+    background-color: var(--color-bg);
+    background-image: url('/images/parchment-bg.svg');
+    background-repeat: repeat;
+    color: var(--color-text);
+    line-height: 2.0;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .page-header {
+    margin-bottom: 5rem;
+  }
+  .main-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.05em;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-gold);
+    display: inline-block;
+  }
+  .sub-title {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 400;
+    margin: 1rem 0 0 0;
+    color: var(--color-sub);
+    letter-spacing: 0.05em;
+  }
+  .content-area {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  .prose {
+    font-size: 1.2rem;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .prose p {
+    margin-bottom: 2rem;
+    text-align: justify;
+  }
+  .page-footer {
+    text-align: center;
+  }
+  .back-link {
+    padding: 1rem 3rem;
+    border: 1px solid var(--color-gold);
+    border-radius: 2px;
+    color: var(--color-sub);
+    text-decoration: none;
+    transition: all 0.5s ease;
+    letter-spacing: 0.05em;
+    background-color: rgba(255,255,255,0.4);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+  .back-link:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transform: scale(1.05);
+  }
+  .back-link:active {
+      transform: scale(0.95);
+  }
+
+  /* Entry Animation */
+  body {
+      animation: fadeInPage 0.8s ease forwards; /* Extended for atmosphere */
+      opacity: 0;
+  }
+  @keyframes fadeInPage {
+      from { opacity: 0; }
+      to { opacity: 1; }
+  }
+</style>
