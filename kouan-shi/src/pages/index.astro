@@ -130,5 +130,27 @@ import OrnamentalFrame from '../components/OrnamentalFrame.astro';
     color: #8c7d6e;
     margin: 0 0.5rem;
   }
+
+  @media (max-width: 768px) {
+    body {
+      height: auto;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
+    }
+    .page-footer {
+      position: static;
+      margin-top: 3rem;
+    }
+    .lang-button {
+      padding: 1rem 2rem;
+    }
+    .selector-nav {
+      gap: 1rem;
+    }
+    .title-container {
+      margin-bottom: 2rem;
+    }
+  }
 </style>
 

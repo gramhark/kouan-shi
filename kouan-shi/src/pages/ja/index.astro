@@ -96,4 +96,26 @@ import OrnamentalFrame from '../../components/OrnamentalFrame.astro';
     margin-top: 3rem;
     text-align: center;
   }
+
+  @media (max-width: 768px) {
+    body {
+      height: auto;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
+    }
+    .main-title {
+      font-size: 8vw;
+      margin-bottom: 2rem;
+    }
+    .nav-button {
+      min-width: auto;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      box-sizing: border-box;
+    }
+    .back-area {
+      margin-top: 2rem;
+    }
+  }
 </style>

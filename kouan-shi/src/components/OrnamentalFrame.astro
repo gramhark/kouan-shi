@@ -176,9 +176,15 @@ const { variant = 'primary' } = Astro.props;
 
   /* スマホ対応 */
   @media (max-width: 768px) {
+    .ornamental-frame-container {
+      display: block;
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
     .ornamental-frame {
-      padding: 3rem 2rem;
-      width: 90vw; /* 横幅いっぱいにしない */
+      padding: 2rem 1.5rem;
+      width: auto;
       box-sizing: border-box;
     }
     .corner {
