@@ -1,5 +1,6 @@
 ---
 // このページは章を選択するためのハブとなります
+import OrnamentalFrame from '../../components/OrnamentalFrame.astro';
 ---
 <html lang="ja">
 <head>
@@ -18,15 +19,17 @@
 <body>
 
   <main class="chapter-selection">
-    <h1 class="main-title">光闇詞</h1>
-    <nav class="chapter-nav">
-      <a href="./prelude/" class="nav-button">前詞四十節</a>
-      <a href="./interlude/" class="nav-button">中詞四節</a>
-      <a href="./finale/" class="nav-button">終節</a>
-    </nav>
-    <div class="back-area">
-      <a href="/" class="nav-button back-button">戻る</a>
-    </div>
+    <OrnamentalFrame variant="chapter">
+      <h1 class="main-title">光闇詞</h1>
+      <nav class="chapter-nav">
+        <a href="./prelude/" class="nav-button">前詞四十節</a>
+        <a href="./interlude/" class="nav-button">中詞四節</a>
+        <a href="./finale/" class="nav-button">終節</a>
+      </nav>
+      <div class="back-area">
+        <a href="/" class="nav-button back-button">戻る</a>
+      </div>
+    </OrnamentalFrame>
   </main>
 
 </body>

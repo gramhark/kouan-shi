@@ -1,5 +1,6 @@
 ---
 // This page serves as a hub for selecting chapters
+import OrnamentalFrame from '../../components/OrnamentalFrame.astro';
 ---
 <html lang="en">
 <head>
@@ -18,15 +19,17 @@
 <body>
 
   <main class="chapter-selection">
-    <h1 class="main-title">The Hymn of Light and Shadow</h1>
-    <nav class="chapter-nav">
-      <a href="./prelude/" class="nav-button">Prelude - 40 Verses</a>
-      <a href="./interlude/" class="nav-button">Interlude - 4 Verses</a>
-      <a href="./finale/" class="nav-button">Finale</a>
-    </nav>
-    <div class="back-area">
-      <a href="/" class="nav-button back-button">Back</a>
-    </div>
+    <OrnamentalFrame variant="chapter">
+      <h1 class="main-title">The Hymn of Light and Shadow</h1>
+      <nav class="chapter-nav">
+        <a href="./prelude/" class="nav-button">Prelude - 40 Verses</a>
+        <a href="./interlude/" class="nav-button">Interlude - 4 Verses</a>
+        <a href="./finale/" class="nav-button">Finale</a>
+      </nav>
+      <div class="back-area">
+        <a href="/" class="nav-button back-button">Back</a>
+      </div>
+    </OrnamentalFrame>
   </main>
 
 </body>

@@ -1,5 +1,6 @@
 ---
 // ルートページは言語選択のハブとなります
+import OrnamentalFrame from '../components/OrnamentalFrame.astro';
 ---
 <html lang="ja">
 <head>
@@ -16,16 +17,18 @@
 <body>
 
   <main class="language-selector">
-    <div class="title-container">
-        <h1 class="title-jp">光闇詞</h1>
-        <h2 class="title-en">The Hymn of Light and Shadow</h2>
-    </div>
+    <OrnamentalFrame>
+      <div class="title-container">
+          <h1 class="title-jp">光闇詞</h1>
+          <h2 class="title-en">The Hymn of Light and Shadow</h2>
+      </div>
 
-    <nav class="selector-nav">
-      <!-- リンクのパスを相対パスに修正 -->
-      <a href="./ja/" class="lang-button">日本語</a>
-      <a href="./en/" class="lang-button">English</a>
-    </nav>
+      <nav class="selector-nav">
+        <!-- リンクのパスを相対パスに修正 -->
+        <a href="./ja/" class="lang-button">日本語</a>
+        <a href="./en/" class="lang-button">English</a>
+      </nav>
+    </OrnamentalFrame>
   </main>
 
   <footer class="page-footer">
