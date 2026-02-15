@@ -1,0 +1,189 @@
+---
+interface Props {
+  variant?: 'primary' | 'chapter';
+}
+
+const { variant = 'primary' } = Astro.props;
+---
+<div class="ornamental-frame-container">
+  <div class={`ornamental-frame ${variant}`}>
+    {/* Top Left */}
+    <div class="corner top-left">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        {variant === 'primary' ? (
+          <>
+            <path d="M0,0 L40,0 C60,0 60,10 40,10 L15,10 L15,35 C15,55 5,55 5,35 L5,0 Z M12,12 L35,12 C45,12 45,18 35,18 L18,18 L18,35 C18,45 12,45 12,35 Z" fill="currentColor" />
+            <circle cx="25" cy="25" r="4" fill="currentColor" />
+          </>
+        ) : (
+          <>
+            <path d="M0,0 L50,0 L50,8 L8,8 L8,50 L0,50 Z" fill="currentColor" />
+            <path d="M15,15 L35,15 L35,35 L15,35 Z M18,18 L32,18 L32,32 L18,32 Z" fill="currentColor" opacity="0.6" />
+            <circle cx="10" cy="10" r="3" fill="currentColor" />
+            <rect x="42" y="3" width="4" height="4" fill="currentColor" />
+            <rect x="3" y="42" width="4" height="4" fill="currentColor" />
+          </>
+        )}
+      </svg>
+    </div>
+    
+    {/* Top Right */}
+    <div class="corner top-right">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        {variant === 'primary' ? (
+          <>
+            <path d="M0,0 L40,0 C60,0 60,10 40,10 L15,10 L15,35 C15,55 5,55 5,35 L5,0 Z M12,12 L35,12 C45,12 45,18 35,18 L18,18 L18,35 C18,45 12,45 12,35 Z" fill="currentColor" />
+            <circle cx="25" cy="25" r="4" fill="currentColor" />
+          </>
+        ) : (
+          <>
+            <path d="M0,0 L50,0 L50,8 L8,8 L8,50 L0,50 Z" fill="currentColor" />
+            <path d="M15,15 L35,15 L35,35 L15,35 Z M18,18 L32,18 L32,32 L18,32 Z" fill="currentColor" opacity="0.6" />
+            <circle cx="10" cy="10" r="3" fill="currentColor" />
+            <rect x="42" y="3" width="4" height="4" fill="currentColor" />
+            <rect x="3" y="42" width="4" height="4" fill="currentColor" />
+          </>
+        )}
+      </svg>
+    </div>
+
+    {/* Bottom Right */}
+    <div class="corner bottom-right">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        {variant === 'primary' ? (
+          <>
+            <path d="M0,0 L40,0 C60,0 60,10 40,10 L15,10 L15,35 C15,55 5,55 5,35 L5,0 Z M12,12 L35,12 C45,12 45,18 35,18 L18,18 L18,35 C18,45 12,45 12,35 Z" fill="currentColor" />
+            <circle cx="25" cy="25" r="4" fill="currentColor" />
+          </>
+        ) : (
+          <>
+            <path d="M0,0 L50,0 L50,8 L8,8 L8,50 L0,50 Z" fill="currentColor" />
+            <path d="M15,15 L35,15 L35,35 L15,35 Z M18,18 L32,18 L32,32 L18,32 Z" fill="currentColor" opacity="0.6" />
+            <circle cx="10" cy="10" r="3" fill="currentColor" />
+            <rect x="42" y="3" width="4" height="4" fill="currentColor" />
+            <rect x="3" y="42" width="4" height="4" fill="currentColor" />
+          </>
+        )}
+      </svg>
+    </div>
+
+    {/* Bottom Left */}
+    <div class="corner bottom-left">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        {variant === 'primary' ? (
+          <>
+            <path d="M0,0 L40,0 C60,0 60,10 40,10 L15,10 L15,35 C15,55 5,55 5,35 L5,0 Z M12,12 L35,12 C45,12 45,18 35,18 L18,18 L18,35 C18,45 12,45 12,35 Z" fill="currentColor" />
+            <circle cx="25" cy="25" r="4" fill="currentColor" />
+          </>
+        ) : (
+          <>
+            <path d="M0,0 L50,0 L50,8 L8,8 L8,50 L0,50 Z" fill="currentColor" />
+            <path d="M15,15 L35,15 L35,35 L15,35 Z M18,18 L32,18 L32,32 L18,32 Z" fill="currentColor" opacity="0.6" />
+            <circle cx="10" cy="10" r="3" fill="currentColor" />
+            <rect x="42" y="3" width="4" height="4" fill="currentColor" />
+            <rect x="3" y="42" width="4" height="4" fill="currentColor" />
+          </>
+        )}
+      </svg>
+    </div>
+    
+    <div class="frame-content">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  .ornamental-frame-container {
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+  }
+
+  .ornamental-frame {
+    position: relative;
+    padding: 4rem 6rem; /* コンテンツ周りの余白 */
+    border: 2px solid #5c5248; /* ダークブラウンの枠線 */
+    background-color: rgba(255, 255, 255, 0.4); /* 半透明の背景で視認性確保 */
+    box-shadow: 0 0 20px rgba(0,0,0,0.1); /* ほんのり影をつけて浮き上がらせる */
+  }
+
+  /* Chapter Variant Styling */
+  .ornamental-frame.chapter {
+    border: 2px solid #5c5248;
+    border-radius: 2px;
+  }
+  
+  .ornamental-frame.chapter::before {
+    border: 1px solid #5c5248;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    opacity: 0.5;
+  }
+
+  /* 内側の飾り線 */
+  .ornamental-frame::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px solid #8c7d6e;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    color: #5c5248; /* SVGのfill色 */
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .corner svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .top-left {
+    top: -10px;
+    left: -10px;
+  }
+
+  .top-right {
+    top: -10px;
+    right: -10px;
+    transform: scaleX(-1);
+  }
+
+  .bottom-right {
+    bottom: -10px;
+    right: -10px;
+    transform: scale(-1);
+  }
+
+  .bottom-left {
+    bottom: -10px;
+    left: -10px;
+    transform: scaleY(-1);
+  }
+
+  /* スマホ対応 */
+  @media (max-width: 768px) {
+    .ornamental-frame {
+      padding: 3rem 2rem;
+      width: 90vw; /* 横幅いっぱいにしない */
+      box-sizing: border-box;
+    }
+    .corner {
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>
