@@ -224,6 +224,16 @@ const {
 
       // 初期状態: 前/次ボタンは非表示
       updateMobileNav();
+
+      // モバイル時のみデフォルトメッセージを「右上の目次より～」に差し替え
+      if (window.innerWidth <= 768) {
+        const defaultP = article?.querySelector('p');
+        if (defaultP) {
+          defaultP.textContent = defaultP.textContent!
+            .replace('目次より', '右上の目次より')
+            .replace('from the index', 'from the index at the top right');
+        }
+      }
     });
   </script>
 </body>
@@ -311,8 +321,8 @@ const {
       align-items: center;
       justify-content: center;
       position: fixed;
-      bottom: 2rem;
-      right: 1.5rem;
+      top: 1rem;
+      right: 1rem;
       width: 56px;
       height: 56px;
       border-radius: 50%;
